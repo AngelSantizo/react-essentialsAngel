@@ -43,7 +43,10 @@ function CoreConcept({ image, title, description }) {
 
 function App() {
   //Aqui de hecho vamos a escribir la funcion donde ejecutaremos el onClick
-  function handleSelect() {
+  //Ahora agregaremos un parametro para identificar el boton seleccionado
+  function handleSelect(selectedButton) {
+    //ahora el parametro deberiamos identificarlo para que diferenciaramos el boton que hicimos click
+    //selectedButton => 'componentes'. 'jsx', 'props', o 'tate'
     console.log("Hello World! - selected");
   }
   return (
@@ -62,10 +65,13 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={handleSelect}>components</TabButton>
-            <TabButton onSelect={handleSelect}>JSX</TabButton>
-            <TabButton onSelect={handleSelect}>Props</TabButton>
-            <TabButton onSelect={handleSelect}>State</TabButton>
+            {/* Asi es como pasamos los parametros para nuestra funcion asi se sabe diferenciar*/}
+            <TabButton onSelect={() => handleSelect("Components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("JSX")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("Props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("State")}>State</TabButton>
           </menu>
         </section>
       </main>
