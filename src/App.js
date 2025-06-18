@@ -47,7 +47,7 @@ function App() {
   function handleSelect(selectedButton) {
     //ahora el parametro deberiamos identificarlo para que diferenciaramos el boton que hicimos click
     //selectedButton => 'componentes'. 'jsx', 'props', o 'tate'
-    console.log("Hello World! - selected");
+    console.log("Hello World! - ", selectedButton);
   }
   return (
     <div>
