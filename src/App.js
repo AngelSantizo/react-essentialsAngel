@@ -5,6 +5,8 @@ import reactImg from "./assets/react-core-concepts.png";
 import componentsImg from "./assets/components.png";
 import { CORE_CONCEPTS } from "./data";
 import "./header.css";
+import "./TabButton.js";
+import TabButton from "./TabButton.js";
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
@@ -40,6 +42,10 @@ function CoreConcept({ image, title, description }) {
 }
 
 function App() {
+  //Aqui de hecho vamos a escribir la funcion donde ejecutaremos el onClick
+  function handleSelect() {
+    console.log("Hello World! - selected");
+  }
   return (
     <div>
       <Header></Header>
@@ -52,6 +58,15 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[2]} />
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={handleSelect}>components</TabButton>
+            <TabButton onSelect={handleSelect}>JSX</TabButton>
+            <TabButton onSelect={handleSelect}>Props</TabButton>
+            <TabButton onSelect={handleSelect}>State</TabButton>
+          </menu>
         </section>
       </main>
     </div>
