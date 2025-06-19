@@ -7,6 +7,7 @@ import { CORE_CONCEPTS } from "./data";
 import "./header.css";
 import "./TabButton.js";
 import TabButton from "./TabButton.js";
+import { useState } from "react";
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
@@ -42,12 +43,15 @@ function CoreConcept({ image, title, description }) {
 }
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState("Please click a button");
+
   //Aqui de hecho vamos a escribir la funcion donde ejecutaremos el onClick
   //Ahora agregaremos un parametro para identificar el boton seleccionado
   function handleSelect(selectedButton) {
     //ahora el parametro deberiamos identificarlo para que diferenciaramos el boton que hicimos click
     //selectedButton => 'componentes'. 'jsx', 'props', o 'tate'
-    console.log("Hello World! - ", selectedButton);
+    setSelectedTopic(selectedButton);
+    console.log("Hello World! - ", selectedTopic);
   }
   return (
     <div>
@@ -73,6 +77,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("Props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("State")}>State</TabButton>
           </menu>
+          {selectedTopic}
         </section>
       </main>
     </div>
